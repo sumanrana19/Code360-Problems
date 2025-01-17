@@ -1,26 +1,25 @@
-#include <iostream>
-#include <vector>
-us
-
-    int
-    main()
+#include <bits/stdc++.h>
+vector<int> findArrayIntersection(vector<int> &arr1, int n, vector<int> &arr2, int m)
 {
-    std::vector<int> numbers = {1, 2, 3, 4, 5};
-
-    // Remove the element at index 2 (which is the number 3)
-    int position = 2;
-    numbers.erase(numbers.begin() + position);
-
-    // Print the resulting vector
-    for (int num : numbers)
+    // Write your code here.
+    vector<int> res;
+    int i = 0, j = 0;
+    while (i < n && j < m)
     {
-        std::cout << num << " ";
+        if (arr1[i] > arr2[j])
+        {
+            j++;
+        }
+        else if (arr1[i] < arr2[j])
+        {
+            i++;
+        }
+        else
+        {
+            res.push_back(arr1[i]);
+            i++;
+            j++;
+        }
     }
-    std::cout << std::endl;
-
-    return 0;
-}
-
-int main()
-{
+    return res;
 }
